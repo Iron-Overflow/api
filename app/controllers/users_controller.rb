@@ -37,4 +37,3 @@ class UsersController < ApplicationController
   #def makesureUserIsVALID
   #end
 end
-end
