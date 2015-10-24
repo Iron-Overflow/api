@@ -17,12 +17,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    question = Question.find(params[:id])
-    if question.access_token == params[:auth_token]
-      render json: question
-    else
-      render json: question
-    end
+    render json: Question.find(params[:id])
+    # if question.access_token == params[:auth_token]
+    #   render json: question
+    # else
+    #   render json: question
+    # end
   end
 
 end
