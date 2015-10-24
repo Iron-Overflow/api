@@ -21,3 +21,11 @@ users = User.all
       user_id: users.sample.id,
       created_at: Faker::Time.backward(1000, :all))
 end
+
+questions = Question.all
+users = User.all
+90.times do
+  Answer.create!(question_id: questions.sample.id,
+      user_id: users.sample.id,
+      created_at: Faker::Time.backward(1000, :all))
+end

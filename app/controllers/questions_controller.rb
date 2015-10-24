@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
     if question.access_token == params[:auth_token]
       render json: question
     else
-      render json: "NOPE."
+      render json: question
     end
   end
 
