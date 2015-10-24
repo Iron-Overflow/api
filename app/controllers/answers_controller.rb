@@ -23,8 +23,8 @@ class AnswersController < ApplicationController
 
   def destroy
     answer = Answer.find_by(auth_token: params[:auth_token])
-    voter.vote.destroy
-    render json: "Sunk the battleship."
+    user.answer.destroy
+    render json: "Answer has been deleted."
   end
 end
 end
