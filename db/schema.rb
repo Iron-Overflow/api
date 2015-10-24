@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024050643) do
+ActiveRecord::Schema.define(version: 20151024172141) do
+
+  create_table "answer_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "question_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
@@ -29,12 +50,6 @@ ActiveRecord::Schema.define(version: 20151024050643) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-
-  create_table "answers", force: :cascade do |t|
-    t.integer  "question_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
 end
