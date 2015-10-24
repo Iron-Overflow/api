@@ -10,9 +10,9 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.new
-    answer.question_id = params[:question_id]
-    answer.user_id = params[:user_id]
+    answer = Answer.new(body: params[:body],
+        question_id: params[:question_id],
+        user_id: params[:user_id])
 
     if answer.save
       render json: answer
