@@ -27,4 +27,3 @@ class AnswersController < ApplicationController
     render json: "Answer has been deleted."
   end
 end
-end
