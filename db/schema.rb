@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151024050643) do
 
-  create_table "answers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "inquiry"
@@ -34,6 +29,12 @@ ActiveRecord::Schema.define(version: 20151024050643) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
