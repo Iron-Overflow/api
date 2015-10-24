@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    q = Question.new(title: params[:title], inquiry: params[:inquiry])
+    q = Question.new(title: params[:title], body: params[:inquiry])
     if q.save
       render json: q.to_json
     else
