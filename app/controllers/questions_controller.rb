@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
   def create
 
-    q = Question.new(title: params[:title], inquiry: params[:inquiry], category: params[:category],
+    q = Question.new(title: params[:title], body: params[:body], category: params[:category],
         user_id: params[:user_id], created_at: params[:created_at])
 
     if q.save

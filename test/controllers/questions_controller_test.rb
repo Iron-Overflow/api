@@ -12,8 +12,8 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get inquiry:text" do
-    get inquiry:text
+  test "should get body:text" do
+    get body:text
     assert_response :success
   end
 
