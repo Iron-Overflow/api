@@ -25,4 +25,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def get_answer
+    @answers = Answer.where(params[:question_id])
+  end
+
+ #  private
+ #  def question_params
+ #   params.require(:question).permit(:user_id, :title, :body, :question_votes)
+ # end
+
 end
