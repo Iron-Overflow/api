@@ -15,17 +15,19 @@ end
 
 users = User.all
 30.times do
-  Question.create!(title: Faker::Lorem.word,
-      body: Faker::Hacker.say_something_smart,
+  Question.create!(title: Faker::Hacker.say_something_smart,
+      body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
       category: Faker::Hacker.adjective,
       user_id: users.sample.id,
       created_at: Faker::Time.backward(1000, :all))
 end
 
-questions = Question.all
 users = User.all
+questions = Question.all
 90.times do
-  Answer.create!(question_id: questions.sample.id,
+  Answer.create!(body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
+      question_id: questions.sample.id,
       user_id: users.sample.id,
+      # username: users.username,
       created_at: Faker::Time.backward(1000, :all))
 end

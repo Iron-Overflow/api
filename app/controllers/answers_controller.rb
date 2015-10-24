@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def index
-    answers = Answer.group(params[:question_id]).count
-    render json: answers
+    # answers = Answer.group(params[:question_id]).count
+    render json: Answer.all
     # respond_to do |format|
     #   format.html
     #   format.json {render json: Voter.all.to_json}
@@ -10,15 +10,23 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.new
-    answer.question_id = params[:question_id]
-    answer.user_id = params[:user_id]
+    answer = Answer.new(body: params[:body], question_id: params[:question_id],
+        user_id: params[:user_id])
 
     if answer.save
-      render json: answer
+      render json: answer.to_json
     else
       render json: answer.errors
     end
+  end
+
+  def show
+    render json: Answer.find(params[:id])
+    # if question.access_token == params[:auth_token]
+    #   render json: question
+    # else
+    #   render json: question
+    # end
   end
 
   def destroy
@@ -26,5 +34,4 @@ class AnswersController < ApplicationController
     user.answer.destroy
     render json: "Answer has been deleted."
   end
-end
 end
