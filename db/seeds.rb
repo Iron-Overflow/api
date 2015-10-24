@@ -6,4 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-question = Questions.create!(title: Faker::Lorem.word, inquiry: Faker::Lorem.paragraph, category: Faker::Hacker.adjectiv, user_id: 1, created_at: Faker::Time.between(DateTime.now - 1, DateTime.now))
+10.times do
+  User.create!(username: Faker::Internet.user_name,
+      email: Faker::Internet.free_email,
+      password_digest: Faker::Internet.password)
+
+end
+
+users = User.all
+30.times do
+  Question.create!(title: Faker::Lorem.word,
+      inquiry: Faker::Lorem.paragraph,
+      category: Faker::Hacker.adjective,
+      user_id: users.sample.id,
+      created_at: Faker::Time.backward(1000, :all))
+end

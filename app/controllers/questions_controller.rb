@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    render json: Questions.all
+    render json: Question.all
   end
 
   def create
@@ -22,5 +22,5 @@ class QuestionsController < ApplicationController
     end
   end
 
-  
+
 end
