@@ -6,13 +6,13 @@ class QuestionsController < ApplicationController
 
   def create
 
-    q = Question.new(title: params[:title], body: params[:body], category: params[:category],
-        user_id: params[:user_id], created_at: params[:created_at])
+    question = Question.new(user_id: params[:user_id], title: params[:title],
+      body: params[:body], category: params[:category], created_at: params[:created_at])
 
-    if q.save
-      render json: q.to_json
+    if question.save
+      render json: question
     else
-      render json: q.errors
+      render json: question.errors
     end
   end
 
