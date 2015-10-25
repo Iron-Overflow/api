@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: [:create]
-  before_action :set_user, except: [:create]
-  before_action :check_user, only: [:update, :destroy]
+  # before_action :check_login, except: [:create]
+  # before_action :set_user, except: [:create]
+  # before_action :check_user, only: [:update, :destroy]
 
   def index
-    @users = User.all
+    render json: User.all
+    # @users = User.all
   end
 
   def create
