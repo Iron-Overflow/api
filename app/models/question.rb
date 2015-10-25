@@ -5,14 +5,14 @@ class Question < ActiveRecord::Base
 
   # validates :title, :body, presence: true
 
+  def username
+    user.username
+  end
+
   def vote_rating
     @up_votes = self.votes.where(up_down: true).count
     @down_votes = self.votes.where(up_down: false).count
     @vote_rating = @up_votes - @down_votes
-  end
-
-  def username
-    user.username
   end
 
   # DOUG: check this out and tell me what you think.
