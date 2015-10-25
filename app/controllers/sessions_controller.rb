@@ -1,12 +1,7 @@
 class SessionsController < ApplicationController
 
-  def generate_token
-    @user.auth_token = SecureRandom.hex
-    @user.save
-  end
-
   def create
-    @user = User.find_by_email(params[:email])
+    @user = User.find_by(params[:email]) || User.find_by(params[:username])
     if user && user.authenticate(params[:password])
       generate_token
       user.save
@@ -18,4 +13,12 @@ class SessionsController < ApplicationController
     user.auth_token = nil
     user.save
   end
+
+  private
+
+  def generate_token
+    @user.auth_token = SecureRandom.hex
+    @user.save
+  end
+
 end

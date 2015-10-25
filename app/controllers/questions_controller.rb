@@ -55,7 +55,7 @@ class QuestionsController < ApplicationController
       end
     end
   end
-  
+
   def get_answer
     @answers = Answer.where(params[:question_id])
   end
