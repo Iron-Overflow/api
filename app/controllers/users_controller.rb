@@ -5,15 +5,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # user = User.new(user_params)
-    # user.save ? (render 'show'):(render 'error')
   end
 
   def create
-
+    @user = User.new(user_params)
+    if @user.save
+      render json: @user
+    end
   end
 
   def update
+    @user.update(user_params)
     # user = User.find(params[:id])
     # if user.auth_token == params[:auth_token]
     #   user.update(user_params) ? (render 'show'):(render 'error')
@@ -21,10 +23,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    # render json: User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def destroy
+    @user.destroy
     # user = User.find(params[:id])
     # if user.auth_token == params[:token]
     #   if user.destroy
@@ -38,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    # params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end
