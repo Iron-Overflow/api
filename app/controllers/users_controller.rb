@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if user.auth_token == params[:auth_token]
       user.update(user_params) ? (render 'show'):(render 'error')
+    end
   end
 
   def show
