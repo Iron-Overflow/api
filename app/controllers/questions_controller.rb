@@ -47,7 +47,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-
     question = Question.find(params[:id])
     if question.user.auth_token == params[:auth_token]
       if question.destroy
