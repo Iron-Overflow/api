@@ -12,5 +12,8 @@ class Question < ActiveRecord::Base
   #     all_answers << {
   #       accepted: a.accepted
   #     }
+
+  # Maybe hash should include answer id and body? and it needs rating
+  
   # end
 end
