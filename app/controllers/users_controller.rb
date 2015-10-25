@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_create :check_login, except: [:create]
+  before_action :check_login, except: [:create]
   before_action :set_user, except: [:create]
   before_action :check_user, only: [:update, :destroy]
 
