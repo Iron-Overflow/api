@@ -22,10 +22,12 @@ users = User.all
       created_at: Faker::Time.backward(1000, :all))
 end
 
+users = User.all
 questions = Question.all
 90.times do
   Answer.create!(body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
       question_id: questions.sample.id,
       user_id: users.sample.id,
+      # username: users.username,
       created_at: Faker::Time.backward(1000, :all))
 end

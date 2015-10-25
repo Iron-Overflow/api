@@ -6,4 +6,5 @@ class Answer < ActiveRecord::Base
   def show
     answer = Answer.find(params[:question_id])
   end
+  
 end
