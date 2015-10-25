@@ -24,6 +24,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  #   user = User.find(params[:id])
+  #   if user.auth_token == params[:auth_token]
+  #     user.update(user_params) ? (render 'show'):(render 'error')
+  #   end
+  # end
+  end
+
+  def show
+    # render json: User.find(params[:id])
   end
 
   def destroy
@@ -42,6 +51,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+
   end
 
 end
