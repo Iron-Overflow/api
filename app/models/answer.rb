@@ -5,7 +5,7 @@ class Answer < ActiveRecord::Base
 
   validates :body, presence: true
 
-
+  
   # def show
   #   answer = Answer.find(params[:question_id])
   # end

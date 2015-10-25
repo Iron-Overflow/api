@@ -4,4 +4,13 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   validates :title, :body, presence: true
+
+  # DOUG: check this out and tell me what you think.
+  # def selected_answer
+  #   all_answers = []
+  #   self.answers.each do |a|
+  #     all_answers << {
+  #       accepted: a.accepted
+  #     }
+  # end
 end
