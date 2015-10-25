@@ -5,10 +5,6 @@ class Answer < ActiveRecord::Base
 
   # validates :body, presence: true
 
-  def username
-    user.username
-  end
-
   def vote_rating
     @up_votes = self.votes.where(up_down: true).count
     @down_votes = self.votes.where(up_down: false).count

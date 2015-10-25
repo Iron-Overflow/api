@@ -47,15 +47,18 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    question = Question.find(params[:id])
+    if question.user.auth_token == params[:auth_token]
+      if question.destroy
+        render json: "Your question has been deleted."
+      else
+        render json: question.errors
+      end
+    end
+  end
 
-    # question = Question.find(params[:id])
-    # if question.user.auth_token == params[:auth_token]
-    #   if question.destroy
-    #     render json: "Your question has been deleted."
-    #   else
-    #     render json: question.errors
-    #   end
-    # end
+  def get_answer
+    @answers = Answer.where(params[:question_id])
   end
 
   # def get_answer

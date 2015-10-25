@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    # user = User.find(params[:id])
-    # if user.auth_token == params[:auth_token]
-    #   user.update(user_params) ? (render 'show'):(render 'error')
-    # end
+    user = User.find(params[:id])
+    if user.auth_token == params[:auth_token]
+      user.update(user_params) ? (render 'show'):(render 'error')
+    end
+    # @user.update(user_params)
   end
 
   def show
@@ -52,7 +52,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
-
   end
 
 end
