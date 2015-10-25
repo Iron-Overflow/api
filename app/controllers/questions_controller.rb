@@ -17,7 +17,16 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: Question.find(params[:id])
+    @question = Question.find(params[:id])
+    @user = User.find(params[:id], params[:question_id])
+    @answer = Answer.find(params[:id], params[:question_id], params[:username])
+    render json: {
+      title: @question.title,
+      body: @question.body,
+      username: @question.user.username,
+      answers: @answer.body,
+      useranswer: @answer.user.username
+    }
     # if question.access_token == params[:auth_token]
     #   render json: question
     # else

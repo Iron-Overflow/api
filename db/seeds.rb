@@ -19,6 +19,7 @@ users = User.all
       body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
       category: Faker::Hacker.adjective,
       user_id: users.sample.id,
+      username: users.sample.username
       created_at: Faker::Time.backward(1000, :all))
 end
 
