@@ -4,6 +4,9 @@ class Answer < ActiveRecord::Base
   belongs_to :user
 
   # validates :body, presence: true
+  def username
+    user.username
+  end
 
   def vote_rating
     @up_votes = self.votes.where(up_down: true).count

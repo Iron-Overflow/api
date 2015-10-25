@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    # @questions = Question.all
-    render json: Question.all
+    @questions = Question.all
+    # render json: Question.all
   end
 
   def create
@@ -56,6 +56,7 @@ class QuestionsController < ApplicationController
       end
     end
   end
+
 
   # def get_answer
   #   @answers = Answer.where(params[:question_id])

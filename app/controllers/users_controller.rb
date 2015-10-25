@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # before_action :check_user, only: [:update, :destroy]
 
   def index
-    render json: User.all
-    # @users = User.all
+    # render json: User.all
+    @users = User.all
   end
 
   def create
