@@ -8,12 +8,12 @@ class User < ActiveRecord::Base
   has_one :answer_vote
 
   # validates :username, :email, :password, presence: true
-  validates :email, uniqueness: true
-
-  def token #copy pasta from vote project
-    begin
-      self.token = SecureRandom.hex
-    end while self.class.exists?(token: token)
-  end
+  # validates :email, uniqueness: true
+  #
+  # def token #copy pasta from vote project
+  #   begin
+  #     self.token = SecureRandom.hex
+  #   end while self.class.exists?(token: token)
+  # end
 
 end
