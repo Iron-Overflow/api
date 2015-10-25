@@ -6,15 +6,15 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @question = Question.new(question_params)
+    if @question.save
+      render json: question
+    else
+      render json: "Question creation failed."
+    end
 
     # question = Question.new(user_id: params[:user_id], title: params[:title],
     #   body: params[:body], category: params[:category], created_at: params[:created_at])
-    #
-    # if question.save
-    #   render json: question
-    # else
-    #   render json: question.errors
-    # end
   end
 
   def show
