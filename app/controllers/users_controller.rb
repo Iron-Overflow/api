@@ -4,36 +4,37 @@ class UsersController < ApplicationController
   before_action :check_user, only: [:update, :destroy]
 
   def create
-    user = User.new(user_params)
-    user.save ? (render 'show'):(render 'error')
+    @users = User.all
+    # user = User.new(user_params)
+    # user.save ? (render 'show'):(render 'error')
   end
 
   def update
-    user = User.find(params[:id])
-    if user.auth_token == params[:auth_token]
-      user.update(user_params) ? (render 'show'):(render 'error')
+    # user = User.find(params[:id])
+    # if user.auth_token == params[:auth_token]
+    #   user.update(user_params) ? (render 'show'):(render 'error')
     end
   end
 
   def show
-    render json: User.find(params[:id])
+    # render json: User.find(params[:id])
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.auth_token == params[:token]
-      if user.destroy
-        render json: "User has been deleted!"
-      else
-        render json: user.errors
-      end
-    end
+    # user = User.find(params[:id])
+    # if user.auth_token == params[:token]
+    #   if user.destroy
+    #     render json: "User has been deleted!"
+    #   else
+    #     render json: user.errors
+    #   end
+    # end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    # params.require(:user).permit(:name, :email, :password)
   end
 
 end

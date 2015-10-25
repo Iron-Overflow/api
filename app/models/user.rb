@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # before_create :token
-  has_secure_password
+  # has_secure_password
 
   has_many :answers
   has_many :questions

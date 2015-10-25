@@ -14,7 +14,7 @@
 end
 
 users = User.all
-30.times do
+60.times do
   Question.create!(title: Faker::Hacker.say_something_smart,
       body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
       category: Faker::Hacker.adjective,
@@ -25,7 +25,7 @@ end
 
 users = User.all
 questions = Question.all
-90.times do
+250.times do
   Answer.create!(body: Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart + " " + Faker::Hacker.say_something_smart,
       question_id: questions.sample.id,
       user_id: users.sample.id,

@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def index
-    answers = Answer.group(params[:question_id]).count
+    # answers = Answer.group(params[:question_id]).count
     render json: Answer.all
   end
 

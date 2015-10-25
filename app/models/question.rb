@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
   has_many :question_votes
   has_many :answers
 
-  validates :title, :body, presence: true
+  # validates :title, :body, presence: true
 
   # DOUG: check this out and tell me what you think.
   # def selected_answer
@@ -14,6 +14,6 @@ class Question < ActiveRecord::Base
   #     }
 
   # Maybe hash should include answer id and body? and it needs rating
-  
+
   # end
 end
