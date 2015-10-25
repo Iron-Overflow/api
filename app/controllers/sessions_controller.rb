@@ -1,24 +1,34 @@
 class SessionsController < ApplicationController
 
   def create
-    @user = User.find_by(params[:email])
-    if user && user.authenticate(params[:password])
-      generate_token
-      user.save
+    if params[:user]
+      user = User.find_by(username: params[:user][:username])
+      if user
+        if user.authenticate(params[:user][:password])
+          user.auth_token = SecureRandom.hex
+          user.save
+          render json: user
+        else
+          render json: {error: "Login failed. Please try again."}
+        end
+      else
+        render json: {error: "User could not be found."}
+      end
+    else
+      render json: {error: "Params error."}
     end
   end
 
+  # @user = User.find_by(params[:username])
+  # if user && user.authenticate(params[:password])
+  #   generate_token
+  #   user.save
+  # else
+  #   render json: "Login failed"
+  # end
+
   def destroy
-    user = User.find(params[:user_id])
     user.auth_token = nil
-    user.save
-  end
-
-  private
-
-  def generate_token
-    @user.auth_token = SecureRandom.hex
-    @user.save
   end
 
 end
