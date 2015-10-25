@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :question_vote
   has_one :answer_vote
 
-  validates :name, :email, :password, presence: true
+  # validates :username, :email, :password, presence: true
   validates :email, uniqueness: true
 
   def token #copy pasta from vote project
