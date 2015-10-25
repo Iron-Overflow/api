@@ -5,6 +5,9 @@ class Answer < ActiveRecord::Base
 
   # validates :body, presence: true
 
+  def username
+    user.username
+  end
 
   # def show
   #   answer = Answer.find(params[:question_id])

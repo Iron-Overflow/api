@@ -5,6 +5,10 @@ class Question < ActiveRecord::Base
 
   # validates :title, :body, presence: true
 
+  def username
+    user.username
+  end
+
   # DOUG: check this out and tell me what you think.
   # def selected_answer
   #   all_answers = []
