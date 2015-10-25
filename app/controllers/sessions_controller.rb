@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @user.auth_token = nil
-    @user.save
+    user = User.find(params[:user_id])
+    user.auth_token = nil
+    user.save
   end
 end
