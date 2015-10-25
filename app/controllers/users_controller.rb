@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:create]
   before_action :check_user, only: [:update, :destroy]
 
-  def create
+  def index
     @users = User.all
+  end
+
+  def create
     # user = User.new(user_params)
     # user.save ? (render 'show'):(render 'error')
   end
