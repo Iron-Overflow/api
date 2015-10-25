@@ -9,6 +9,12 @@ class Answer < ActiveRecord::Base
     user.username
   end
 
+  def updownvote
+    @up_votes = self.votes.where(up_votes: true).count
+    @down_votes = self.votes.where(down_votes: false).count
+    @vote_rating = @up_votes - @down_votes
+  end
+
   # def show
   #   answer = Answer.find(params[:question_id])
   # end

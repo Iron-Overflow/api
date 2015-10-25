@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: [:create]
+  before_create :check_login, except: [:create]
   before_action :set_user, except: [:create]
   before_action :check_user, only: [:update, :destroy]
 
@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = User.all
     # user = User.new(user_params)
     # user.save ? (render 'show'):(render 'error')
+  end
+
+  def create
+
   end
 
   def update
