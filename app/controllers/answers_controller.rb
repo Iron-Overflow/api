@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
   def create
     answer = Answer.new(question_id: params[:question_id], user_id: params[:user_id],
         body: params[:body], accepted: params[:accepted])
-    if answer.user.auth_token == params [:auth_token]
+    if answer.user.auth_token == params[:auth_token]
       if answer.save
         render json: answer
       else
