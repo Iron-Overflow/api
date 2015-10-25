@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: [:create]
+  before_create :check_login, except: [:create]
   before_action :set_user, except: [:create]
   before_action :check_user, only: [:update, :destroy]
 
@@ -10,9 +10,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    # user = User.find(params[:id])
-    # if user.auth_token == params[:auth_token]
-    #   user.update(user_params) ? (render 'show'):(render 'error')
+
+    user = User.find(params[:id])
+    if user.auth_token == params[:auth_token]
+      user.update(user_params) ? (render 'show'):(render 'error')
     end
   end
 
