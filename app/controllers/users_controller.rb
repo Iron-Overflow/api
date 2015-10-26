@@ -9,12 +9,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      render json: @users
+    user = User.new(user_params)
+
+    if user.save
+      render json: user
     else
-      render json: @users.errors
+      render json: user.errors
     end
+  end
+
+  def new
+    @user = User.new
   end
 
   def update
@@ -34,12 +39,9 @@ class UsersController < ApplicationController
   # end
   end
 
-  def show
-    # render json: User.find(params[:id])
-  end
-
   def destroy
     @user.destroy
+    render json: "Member has been deleted."
     # user = User.find(params[:id])
     # if user.auth_token == params[:token]
     #   if user.destroy
