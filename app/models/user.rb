@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_create :token
+  before_create :auth_token
   has_secure_password
 
   has_many :answers
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   def token
     begin
       self.token = SecureRandom.hex
-    end while self.class.exists?(token: token)
+    end while self.class.exists?(token: auth_token)
   end
 
 end
