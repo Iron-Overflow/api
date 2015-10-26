@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     # render json: User.all
     @users = User.all
+    render json: @users
   end
 
   def create
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render json: @user
   #   user = User.find(params[:id])
   #   if user.auth_token == params[:auth_token]
   #     user.update(user_params) ? (render 'show'):(render 'error')
